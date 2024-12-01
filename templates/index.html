@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Recognition</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <style>
+        #validation{
+            color: blue;
+        }
+    </style>
+
+</head>
+<body class="container">
+    <h1 class="text-center">Language Recognition</h1>
+    <p>Cette IA a été concu par <a href="https://mailto:vmangwandjo@gmail.com" target="_blank">valere mangwandjo</a>. Elle permet de trouver la langue dans laquelle est texte est ecrit.
+    <br>Elle comporte 17 langues. Alors vous pouvez la tester, en entrant votre texte et en valider. </p>
+    <form method="POST" class="mx-4">
+        <textarea id="text" name="text" rows="4" class="form-control" placeholder="Enter votre texte"></textarea><br><br>
+        <input type="submit" value="Detecter la langue" class="btn btn-success">
+    </form>
+    {% if text %}
+        Texte entré:
+        <p>{{ text }}</p>
+        <div id="validation">
+            Langage detecté:
+            <p>{{ language }}</p>
+        </div>
+        
+    {% endif %}
+</body>
+</html>
